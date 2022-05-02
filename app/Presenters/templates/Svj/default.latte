@@ -1,0 +1,71 @@
+{block content}
+{* Záhlaví stránky *}
+<div class="row bg-primary text-light text-center is-horizontal-align">
+    <div class="col-10 col-9-md col-8-lg">
+        <h1>{$table->getRows()[key($table->getRows())]['title']}</h1>
+        <h3>{$table->getRows()[key($table->getRows())]['subtitle']}</h3>
+    </div>
+</div>
+{* Aktuality *}
+<div class="row text-center is-horizontal-align">
+    <div class="col-12" id="news">
+        <img class="front-icon" src="/img/lo-nastenka.png" alt="Informace a údálosti">
+    </div>
+    <div class="col-12 col-6-md col-4-lg news" n:foreach="$news->getRows() as $uid => $record">
+        <div class="card news-card">
+            <header>
+                <h4>{$record['title']}<br/><span class="date">[{$record['publish_date']}]</span></h4>
+            </header>
+            <p>{$record['teaser']}</p>
+            {if (strlen($record['content'])>1)}
+            <div class="is-bottom-right">
+                <a href="#news-modal" class="button primary icon-only"
+                onclick="document.getElementById('news-content').innerHTML = {='<h4>'.$record['title'].'</h4>' . $texy->process($record['content'])}">
+                <i class="material-icons md-24" title="Detail">loupe</i></a>
+            </div>
+            {/if}
+        </div>        
+    </div>
+</div>
+{* Modal dialogs *}
+<div id="news-modal" class="modal-news">
+    <a class="close" href="#news" title="Zpět"></a>
+    <div class="news__content">
+        <a class="cancel" href="#news"><i class="material-icons error small" title="Zpět">cancel</i></a>
+        <div id="news-content"></div>
+    </div>
+</div>
+{* Základní informace a kontakty *}   
+<div class="row text-center">
+    <div class="col-12 ">
+        <img class="front-icon" src="/img/lo-pohotovost.png" alt="Informace a údálosti">
+    </div>
+    <div class="col-12 col-4-md info-side is-marginless">
+    <h4><a href="{$table->getRows()[key($table->getRows())]['info_left_url']}" title="{$table->getRows()[key($table->getRows())]['info_left_title']}" target="_blank">{$table->getRows()[key($table->getRows())]['info_left_title']}</a></h4>
+        <div class="info">
+        {$texy->process($table->getRows()[key($table->getRows())]['info_left_text'])|noescape}
+        </div>
+    </div>
+    <div class="col-12 col-4-md info-center is-marginless">
+    <h4><a href="{$table->getRows()[key($table->getRows())]['info_center_url']}" title="{$table->getRows()[key($table->getRows())]['info_center_title']}" target="_blank">{$table->getRows()[key($table->getRows())]['info_center_title']}</a></h4>
+        <div class="info">
+        {$texy->process($table->getRows()[key($table->getRows())]['info_center_text'])|noescape}
+        </div>
+    </div>
+    <div class="col-12 col-4-md info-side is-marginless">
+    <h4><a href="{$table->getRows()[key($table->getRows())]['info_right_url']}" title="{$table->getRows()[key($table->getRows())]['info_right_title']}" target="_blank">{$table->getRows()[key($table->getRows())]['info_right_title']}</a></h4>
+        <div class="info">
+        {$texy->process($table->getRows()[key($table->getRows())]['info_right_text'])|noescape}
+        </div>
+    </div>
+</div>
+{* Info pro přihlášení *}
+<div class="row text-center">
+    <div class="col-12 ">
+        <img class="front-icon" src="/img/lo-login.png" alt="Informace a údálosti">
+    </div>
+    <div class="col-12 news">
+        {$texy->process($table->getRows()[key($table->getRows())]['login_info'])|noescape}
+	</div>
+</div>
+

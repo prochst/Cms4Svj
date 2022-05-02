@@ -1,0 +1,108 @@
+{block content}
+<div class="padding-vertical">
+    <h1>Správce souborů</h1>
+    <section>
+        <div class="row bg-primary bd-grey">
+            {* Adresářový strom *}
+            <div class="col-2 text-light is-marginless">
+                    {block dirTreeList}
+                        <ul n:if="$dirTree" class="ul-dir">
+                        {foreach $dirTree as $node => $properties}
+                            {if ($curDir['Path'] == $properties['Path'])}
+                                <li class="li-selected">                                    
+                                    <i class="material-icons md-16" n:if="$properties['Path'] != ''">arrow_right</i>
+                                    <i class="material-icons list">folder_open</i>{$node|noescape}
+                                    {include dirTreeList, dirTree => $properties['Content']}                              
+                                </li>
+                            {else}
+                                <li class="li-normal">
+                                    <i class="material-icons md-16" n:if="$properties['Path'] != ''">arrow_right</i>
+                                    <i class="material-icons list">folder</i>
+                                    <a n:href="default $properties" class="text-light">{$node|noescape}</a>
+                                    {include dirTreeList, dirTree => $properties['Content']}                              
+                                </li>
+                            {/if}
+                        {/foreach}
+                        </ul>
+                    {/block}
+            </div>
+            {* Obhah vybraného adresáře (pouze soubory) *}
+            <div class="col bg-light is-marginless padding-cell" style="padding-top: 0">
+                    <div class="row bg-primary text-light">
+                        <div class="col-3 is-marginless padding-cell text-left">
+                            <a href="#addfile-modal" class="button success icon-only small"><i class="material-icons" title="Nahrát soubor">note_add</i></a>
+                            <a href="#adddir-modal" class="button success icon-only small"><i class="material-icons" title="Přidat novou složku">create_new_folder</i></a>
+                            <a href="#rendir-modal" class="button success icon-only small"><i class="material-icons" title="Přejmenovat složku">topic</i></a>
+                            <a href="#deldir-modal" class="button error icon-only small"><i class="material-icons" title="Smazat složku">folder_delete</i></a>
+                        </div>
+                        <div class="col is-marginless padding-cell text-left dir-title">
+                            <i class="material-icons title text-primary text-light" title="Aktuální">folder</i>
+                            {if $curDir['Path'] == ""} Soubory {else} Soubory/{$curDir['Path']} {/if}
+                        </div>
+                    </div>
+                {if $content['file'] }
+                    {foreach $content['file'] as $file => $properties}                               
+                    <div class="row">
+                        <div class="col-2 is-marginless padding-cell text-left">
+                            <a href="#delfile-modal" class="button error icon-only small"
+                            onclick="document.getElementById('delfilename').value = {$file}">
+                            <i class="material-icons" title="Smazat">delete_forever</i></a>
+                            <a href="#renfile-modal" class="button success icon-only small"
+                            onclick="document.getElementById('newfilename').value = {$file};document.getElementById('oldfilename').value = {$file}">
+                            <i class="material-icons" title="Přejmenovat">drive_file_rename_outline</i></a>
+                        </div>
+                        <div class="col is-marginless padding-cell">{$properties['Name']}</div>
+                        <div class="col-1 is-marginless padding-cell">{$properties['Ext']}</div>                    
+                        <div class="col-1 is-marginless padding-cell">{$properties['Size']}</div>
+                        <div class="col-3 is-marginless padding-cell">{$properties['MTime']}</div>
+                    </div>
+                    {/foreach}
+                {/if}
+            </div>
+        </div>
+        {* Modal dialogs pro akce se soubory a adresáři *}
+        <div id="addfile-modal" class="modal">
+            <div class="modal__content">
+                <h3>Nahrát nový soubor</h3>
+                {control uploadForm}
+            </div>
+        </div>
+
+        <div id="delfile-modal" class="modal">
+            <div class="modal__content">
+                <h4>Opravdu chcete smazat soubor?</h4>
+                {control delFileForm}
+            </div>
+        </div>               
+
+        <div id="renfile-modal" class="modal">
+            <div class="modal__content">
+                <h4>Zadej nový název souboru</h4>
+                {control renFileForm}
+            </div>
+        </div>               
+
+        <div id="adddir-modal" class="modal">
+            <div class="modal__content">
+                <h3>Přidat novou složku</h3>
+                {control addDirForm}
+            </div>
+        </div>
+
+        <div id="deldir-modal" class="modal">
+            <div class="modal__content">
+                <h4>Opravdu chcete smazat složku i s jejím obsahem?</h4>
+                <h4 class="text-center text-error">/Soubory/{$curDir['Path']}</h4>
+                {control delDirForm}
+            </div>
+        </div>               
+
+        <div id="rendir-modal" class="modal">
+            <div class="modal__content">
+                <h4>Zadej nový název složky</h4>
+                {control renDirForm}
+            </div>
+        </div>               
+
+    </section>
+</div>

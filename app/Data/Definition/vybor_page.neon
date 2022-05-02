@@ -1,0 +1,153 @@
+title:
+	title: Název
+	datatype: string
+	length: 100
+	required: true
+	default: null
+	unique: false
+	hidden: false
+	readonly: false
+	browse: true
+
+subtitle:
+	title: Podnázev
+	datatype: string
+	length: 250
+	required: false
+	default: null
+	unique: false
+	hidden: false
+	readonly: false
+	browse: true
+
+info:
+	title: Aktuální informace
+	datatype: text
+	length: 500
+	required: false
+	default: null
+	unique: false
+	hidden: false
+	readonly: false
+	browse: true
+
+dok_zapisy:
+	title: Zápisy
+	datatype: text
+	length: 250
+	required: true
+	default: null
+	unique: false
+	hidden: false
+	readonly: false
+	browse: true
+
+dok_zapisy_adr:
+	title: Zápisy - složka
+	datatype: dir
+	length: 50
+	required: true
+	default: ''
+	unique: false
+	hidden: false
+	readonly: false
+	browse: true
+
+dok_smlouvy:
+	title: Smlouvy
+	datatype: text
+	length: 250
+	required: true
+	default: null
+	unique: false
+	hidden: false
+	readonly: false
+	browse: true
+
+dok_smlouvy_adr:
+	title: Smlouvy - složka
+	datatype: dir
+	length: 50
+	required: true
+	default: ''
+	unique: false
+	hidden: false
+	readonly: false
+	browse: true
+
+dok_sluzby:
+	title: Služby
+	datatype: text
+	length: 250
+	required: true
+	default: null
+	unique: false
+	hidden: false
+	readonly: false
+	browse: true
+
+dok_sluzby_adr:
+	title: Služby - složka
+	datatype: dir
+	length: 50
+	required: true
+	default: ''
+	unique: false
+	hidden: false
+	readonly: false
+	browse: true
+
+dok_dohody:
+	title: Dohody
+	datatype: text
+	length: 250
+	required: true
+	default: null
+	unique: false
+	hidden: false
+	readonly: false
+	browse: true
+
+dok_dohody_adr:
+	title: Dovody - složka
+	datatype: dir
+	length: 50
+	required: true
+	default: ''
+	unique: false
+	hidden: false
+	readonly: false
+	browse: true
+
+dok_ucto:
+	title: Účetní doklady
+	datatype: text
+	length: 250
+	required: true
+	default: null
+	unique: false
+	hidden: false
+	readonly: false
+	browse: true
+
+dok_ucto_adr:
+	title: Účto - složka
+	datatype: dir
+	length: 50
+	required: true
+	default: ''
+	unique: false
+	hidden: false
+	readonly: false
+	browse: true
+
+update:
+	title: Datum změny
+	datatype: time
+	length: null
+	required: false
+	default: now
+	unique: false
+	hidden: false
+	readonly: false
+	browse: true

@@ -1,0 +1,30 @@
+{block content}
+<div class="padding-vertical">
+    {* Záhlaví stránky s názvem a popisem tabulky *}
+    <h1>{$table->properties['title']} - {$table->properties['desc']}</h1>
+    <section>
+        {* Záhalví tabulky a názvy sloupců *}
+        <div class="row bg-primary text-light is-vertical-align">
+            <div class="col-2 col-1-md text-justify is-marginless padding-cell"><a class="button success icon-only small" n:href="editor $table->properties['name']"><i class="material-icons" title="Přidat nový">create_new_folder</i></a></div>
+            {foreach $table->columns as $name => $properties}
+                <div class="col is-marginless padding-cell" n:if="$properties['browse']">{$properties['title']}</div>
+            {/foreach}
+        </div>
+        {* Řádky s jednotlivými záznamy *}
+        <div class="row bd-grey" n:foreach="$table->getRows() as $uid => $record">
+            <div class="col-2 bg-primary col-1-md text-justify is-marginless padding-cell">
+                <a class="button success icon-only small" n:href="editor $table->properties['name'], $uid"><i class="material-icons" title="Upravit">edit</i></a><hr/>
+                <a class="button error icon-only small"n:href="remove $table->properties['name'], $uid"><i class="material-icons" title="Smazat">delete_forever</i></a>
+            </div>
+            {foreach $record as $name => $value}
+            <div class="col bg-light is-marginless padding-cell" n:if="$table->columns[$name]['browse']">
+                {if $table->columns[$name]['datatype'] == 'text'}
+                    {$texy->process($value)|noescape}
+                {else}
+                    {$value}
+                {/if}
+            </div>
+            {/foreach}
+        </div>
+    </section>
+</div>

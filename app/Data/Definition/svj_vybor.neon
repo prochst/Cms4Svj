@@ -1,0 +1,65 @@
+name:
+	title: Jméno
+	datatype: string
+	length: 50
+	required: true
+	default: null
+	unique: false
+	hidden: false
+	readonly: false
+	browse: true
+
+funkce:
+	title: Funkce
+	datatype: enum
+	length: 'Člen, Místopředseda, Předseda' 
+	required: true
+	default: 'Člen'
+	unique: false
+	hidden: false
+	readonly: false
+	browse: true
+
+email:
+	title: Email
+	datatype: string
+	length: 50
+	required: false
+	default: null
+	unique: false
+	hidden: false
+	readonly: false
+	browse: true
+
+mobil:
+	title: Telefon
+	datatype: string
+	length: 20
+	required: false
+	default: null
+	unique: false
+	hidden: false
+	readonly: false
+	browse: true
+
+obdobi:
+	title: Funkčního obobí do
+	datatype: date
+	length: null
+	required: true
+	default: now
+	unique: false
+	hidden: false
+	readonly: false
+	browse: true
+
+update:
+	title: Datum změny
+	datatype: time
+	length: null
+	required: false
+	default: now
+	unique: false
+	hidden: false
+	readonly: false
+	browse: false

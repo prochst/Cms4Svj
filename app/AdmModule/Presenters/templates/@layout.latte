@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="{$basePath}/css/chota.css">
+	<link rel="stylesheet" href="{$basePath}/css/admin.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<title>{ifset title}{include title|stripHtml} | {/ifset}Administrace</title>
+</head>
+
+<body>
+	{* Společné záhalví *}
+	<nav class="nav bg-dark row">
+		<div class="col-2 bg-error is-marginless">
+			<a class="brand text-white" n:href="Adm:default">Administrace</a>
+		</div>
+		{* Přihlášení *}
+		<div class="nav-right bg-dark is-marginless">
+			{if ($user->isLoggedIn())}
+			<span class="button small clear text-light">{$user->identity->name}</span> <a class="button clear small text-light" n:href="Login:out"><i class="material-icons" title="Odhlásit">logout</i></a>
+			{/if}
+		</div>
+	</nav>
+    <div class="row">
+		{* Boční menu *}
+		<aside class="col-2 bg-dark text-white is-marginless">
+			<nav class="nav-adm">
+				{if ($user->isAllowed(App\Model\RoleManager::RES_OBSAH))}			
+				<h3>Obsah</h3>
+				<ul>
+					<li><a class="text-white" n:href="DataRecord:default, main_page">Hlavní</a></li>
+					<li><a class="text-white" n:href="DataRecord:default, clen_page">Pro členy</a></li>
+					<li><a class="text-white" n:href="DataRecord:default, vybor_page">Pro výbor</a></li>
+					<li><a class="text-white" n:href="DataRecord:default, svj_info">Společenství</a></li>
+					<li><a class="text-white" n:href="DataList:default,'news'">Aktuality</a></li>
+					<li><a class="text-white" n:href="FileList:default">Soubory</a></li>
+				</ul>
+				{/if}
+				{if ($user->isAllowed(App\Model\RoleManager::RES_NASTAV))}
+				<hr>
+				<h3>Nastavení</h3>
+				<ul>
+					<li><a class="text-white" n:href="DataList:default, svj_members">Členové</a></li>
+					<li><a class="text-white" n:href="DataList:default, svj_vybor">Výbor</a></li>
+					<li><a class="text-white" n:href="DataList:default, users">Uživatelé</a></li>
+				</ul>
+				{/if}
+			</nav>
+		</aside>
+		{* Obsah stránky*}
+		<div class="col is-marginless">
+			<div n:foreach="$flashes as $flash" n:class="flash, $flash->type">{$flash->message}</div>
+			{include content}
+	</div>
+	
+	{block scripts}
+	<script src="https://nette.github.io/resources/js/3/netteForms.min.js"></script>
+	{/block}
+</body>
+</html>

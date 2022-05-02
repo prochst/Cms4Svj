@@ -1,0 +1,451 @@
+:root {
+  --color-primary: #4792e1; /* brand color */
+  --color-lightGrey: white;
+  --bg-secondary-color: #d0e2f5;
+  --font-color: #165497;
+  --font-bigger: 1.75rem;
+  --font-big: 1.9rem;
+  --font-smaller: 1.45rem;
+  --font-small: 1.3rem;
+}
+
+.bg-secondary {
+  background:var(--bg-secondary-color);
+}
+
+.header {
+	height: 257px;
+	background: url(/img/tit-foto.jpg);
+	background-size: cover;
+	background-position: center;
+}
+
+.header.subsite {
+	height: 210px;
+	background:var(--color-primary);
+}
+
+.nav-main {
+    padding: 1rem 2rem;
+    
+}
+
+.nav-main ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-main ul li {
+  width: 100%;
+  padding-left: 1rem;
+  font-weight: bold;
+  line-height: 2em;
+  color: var(--bg-secondary-color);
+}
+
+.nav-main li a {
+  display: block;
+  color: var(--color-lightGrey);
+  font-weight: bold;
+  line-height: 2em;
+  text-decoration: none;
+}
+
+.nav-main .menu {
+  background-color: var(--color-primary);
+  opacity: 0.9;
+}
+.nav-main .login {
+  font-weight: bold;
+  background-color: var(--color-primary);
+  padding: 1rem 1rem;
+  opacity: 0.9;
+}
+
+.footer {
+  margin-top: 1rem;
+}
+.footer .foto-bg{
+  background: url(/img/pata-foto.jpg);
+  background-size: cover;
+  background-position: center;
+  min-height: 220px
+}
+.footer .mapa-bg{
+  background: url(/img/pata-mapa.jpg);
+  background-size: cover;
+  background-position: center;
+  min-height: 220px	
+}
+
+.flash {
+  padding: 0.5rem 1rem;
+  font-size: var(--txt-bigger);
+  font-weight: bold;
+  text-align: center;
+  color: var(--color-lightGrey);
+}
+
+.flash.info {
+  background-color: var(--color-success);
+}
+
+.flash.error {
+  background-color: var(--color-error);
+}
+
+
+.front-icon {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 60px;
+  height: 60px;
+  margin-top: 1rem;
+}
+
+.news .date {
+  font-size: var(--font-small);
+}
+
+.news details > summary {
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1rem;
+  font-size: var(--font-smaller);
+  background-color: var(--bg-secondary-color);
+    border: none;
+  box-shadow: 3px 3px 4px var(--color-grey);
+  cursor: pointer;
+}
+
+.news details > summary:focus {
+  outline: 0;
+}
+.news details > div {
+  padding: 0 1% 0 1%;
+  text-align: left;
+}
+
+.news .news-card {
+  position: relative;
+}
+
+.file-card {
+  position: relative;
+}
+
+.is-bottom-right {
+  position:absolute;
+  bottom: 1rem;
+  right: 1rem;
+}
+
+.is-padding-botom {
+  padding-bottom: 2rem;;
+}
+
+.is-padding-top {
+  padding-top: 2rem;
+}
+
+.is-padding-vertical {
+  padding: 0 0.5rem;
+}
+
+summary {list-style: none}
+summary::-webkit-details-marker {display: none; }
+
+.info {
+  padding-left: 3rem;
+  padding-right: 1.5rem;
+  padding-bottom: 2rem;
+}
+
+.info td {
+  padding: 0 0.2rem;
+}
+
+.info-side {
+  background-color: var(--color-primary);
+  color: var(--color-lightGrey);
+}
+
+.info-side a {
+  color: var(--color-lightGrey);
+}
+
+.info-center {
+  background-color: var(--bg-secondary-color);
+  
+}
+.padding-cell{
+  padding: 0.3rem 1rem;
+  font-size: var(--font-bigger);
+}
+
+.padding-cell-lg{
+  padding: 0.8rem 1.2rem;
+  font-size: var(--font-bigger);
+}
+
+.margin-top{
+  margin-top: 2rem;
+}
+
+.no-margin-bottom{
+  margin-bottom: 0.3rem;
+}
+
+.button.small {
+  padding: 0.2rem 0.5rem;
+}
+
+.button.big {
+  padding: 1.8rem 1.8rem;
+}
+
+.button.circle {
+  border-radius: 50%;
+}
+  
+
+  /* Modal dialog pro Login */
+.modal {
+  visibility:visible;
+  opacity: 1;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(36, 36, 36, 0.7);
+  transition: all .4s;
+}
+
+.modal:target {
+  visibility: visible;
+  opacity: 1;
+}
+
+.modal__content {
+  border-radius: 4px;
+  position: relative;
+  width: 500px;
+  max-width: 90%;
+  background: var(--color-lightGrey);
+  padding: 1em 2em;
+}
+
+
+/* Modal dialog pro News */
+.modal-news {
+    visibility:hidden;
+    opacity: 0;
+    position:fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(36, 36, 36, 0.7);
+    transition: all .4s;
+    z-index: 10;
+}
+  
+.modal-news:target {
+    visibility: visible;
+    opacity: 1;
+ }
+  
+.news__content {
+  border-radius: 4px;
+  position: relative;
+  width: 95vw;
+  background: var(--color-lightGrey);
+  padding: 3rem 4rem;
+  height: 90vh;
+  overflow-y: auto;
+}
+
+.cancel {
+  position: absolute;
+  right: 0.8em;
+  top: 0.5em;
+}
+
+.close {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  cursor: default;
+}
+
+
+.material-icons {
+  vertical-align: text-bottom;
+}
+.material-icons.list {
+  padding-top: 5px;
+  padding-right: 7px;
+}
+
+.material-icons.error {
+  color: var(--color-error);
+}
+
+.material-icons.md-18 { font-size: 18px; }
+.material-icons.md-24 { font-size: 24px; }
+.material-icons.md-36 { font-size: 36px; }
+.material-icons.md-48 { font-size: 48px; }
+
+@media (min-width: 600px) {
+  body {
+    font-size: var(--font-bigger);
+  }
+
+	.header {
+		height: 283px;
+		background: url(/img/tit-foto-800.jpg);
+		background-size: cover;
+		background-position: center;
+	}
+
+  .header.subsite {
+    height: 70px;
+  }
+  
+  .nav-main ul li {
+    padding-left: 2rem;
+    width: auto;
+    display: inline-block;
+  }
+
+  .nav-main a {
+    position: relative;
+  }
+
+  .nav-main .menu {
+    text-align: left;
+    background-color:transparent;
+  }
+
+  .nav-main .login {
+    text-align: right;
+    background-color:transparent;
+    padding: 0;;
+  }
+
+  .footer {
+    margin-top: 2rem;
+  }
+
+  .news details > summary {
+    
+    font-size: var(--font-size);
+  }
+
+  .news details > div {
+    padding: 0 15% 0 15%;
+    text-align: left;
+  }
+
+  .file-card {
+    height: 180px;
+  }
+}
+
+@media (min-width: 900px) {
+  body {
+    font-size: var(--font-big);
+  }
+
+  h1 {
+    font-size: 2.5em;
+  }
+  h2 {
+    font-size: 2.25em;
+  }
+  h3 {
+    font-size: 2em;
+  }
+  h4 {
+    font-size: 1.5em;
+  }
+  h5 {
+    font-size: 1.25em;
+  }
+
+  .header {
+		height: 411px;
+		background: url(/img/tit-foto-1280.jpg);
+		background-size: cover;
+		background-position: center;
+	}
+
+  .front-icon {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90px;
+    height: 90px;
+    margin-top: 2rem;
+  }
+  
+  .news details > summary {
+    font-size: var(--font-bigger);
+  }
+
+  .news .news-card {
+    height: 280px;
+  }
+
+  .news__content {
+    width: 80vw;
+  } 
+
+  .news .date {
+    font-size: var(--font-smaller);
+  }
+   
+
+  .file-card {
+    height: 200px;
+  }
+
+  .is-padding-vertical {
+    padding: 0 2rem;
+  }
+   
+}
+@media (min-width: 1200px) {
+	.header {
+		height: 607px;
+		background: url(/img/tit-foto-1920.jpg);
+		background-size: cover;
+		background-position: center;
+	}
+
+  .news .fix-height {
+    height: 320px;
+  }
+
+  .news__content {
+    width: 70vw;
+  }  
+
+  .file-card {
+    height: 220px;
+  }
+
+  .is-padding-vertical {
+    padding: 0 4rem;
+  }
+}
+

@@ -1,0 +1,73 @@
+{import '..\filelist.latte'}
+{import '..\filelist-modal.latte'}
+{import '..\uctolist-modal.latte'}
+
+{block content}
+<div class="row bg-primary text-light text-center is-horizontal-align">
+    <div class="col-10 col-9-md col-8-lg">
+        <h1>{$table->getRows()[key($table->getRows())]['title']}</h1>
+        <h4>{$table->getRows()[key($table->getRows())]['subtitle']}</h4>
+    </div>
+</div>
+{* Aktuální informace *}
+<div class="row text-center">
+    <div class="col padding-cell">
+        <span class="button circle primary icon-only margin-top"><i class="material-icons md-48">info_outline</i></span>
+        <h3 class="is-marginless">{$table->columns['info']['title']}</h3>
+        <div n:if="$texy->process($table->getRows()[key($table->getRows())]['info'])">{$texy->process($table->getRows()[key($table->getRows())]['info'])|noescape}</div>
+    </div>
+</div>    
+{* Dokumenty *}
+<div class="row bg-primary text-light text-center">
+    <div class="col padding-cell">
+        <h3 class="no-margin-bottom"><i class="material-icons md-48">source</i>Dokumenty</h3>
+    </div>
+</div>  
+<div class="row text-center is-horizontal-align is-padding-top">
+    <!-- Zápisy -->
+    <div class="col-6 col-4-md col-3-lg">
+    {include filelist-modal, 
+        $table->columns['dok_zapisy']['title'], 
+        $table->getRows()[key($table->getRows())]['dok_zapisy'], 
+        $fileMng->getDirContent($table->getRows()[key($table->getRows())]['dok_zapisy_adr'])} 
+    </div>
+    <!-- Smlouvy -->
+    <div class="col-6 col-4-md col-3-lg">
+    {include filelist-modal, 
+        $table->columns['dok_smlouvy']['title'], 
+        $table->getRows()[key($table->getRows())]['dok_smlouvy'], 
+        $fileMng->getDirContent($table->getRows()[key($table->getRows())]['dok_smlouvy_adr'])} 
+    </div>
+    <!-- Služby -->
+    <div class="col-6 col-4-md col-3-lg">
+    {include filelist-modal, 
+        $table->columns['dok_sluzby']['title'], 
+        $table->getRows()[key($table->getRows())]['dok_sluzby'], 
+        $fileMng->getDirContent($table->getRows()[key($table->getRows())]['dok_sluzby_adr'])} 
+    </div>
+    <!-- Dohody -->
+    <div class="col-6 col-4-md col-3-lg">
+    {include filelist-modal, 
+        $table->columns['dok_dohody']['title'], 
+        $table->getRows()[key($table->getRows())]['dok_dohody'], 
+        $fileMng->getDirContent($table->getRows()[key($table->getRows())]['dok_dohody_adr'])} 
+    </div>
+</div>
+{* Účetní doklady *}
+<div class="row bg-primary text-light text-center">
+    <div class="col padding-cell">
+        <h3 class="no-margin-bottom"><i class="material-icons md-48">text_snippet</i>Účetní doklady</h3>
+    </div>
+</div>  
+<div class="row text-center is-horizontal-align is-padding-top">
+    <!-- cyklus přes podadresáře složky Účto -->
+    {var $dirs = $fileMng->getDirContent($table->getRows()[key($table->getRows())]['dok_ucto_adr'])['dir']}
+    {foreach $dirs as $dir}
+        <div class="col-4 col-3-md col-2-lg">
+        <!-- Roky -->
+        {include uctolist-modal, 
+            $dir['Name'], '',  
+            $fileMng->getDirContent($dir['Path'] . '/' . $dir['Name'])} 
+        </div>
+    {/foreach}
+</div>

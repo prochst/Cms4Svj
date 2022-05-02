@@ -1,0 +1,49 @@
+title:
+	title: Název
+	datatype: text
+	length: 100
+	required: true
+	default: null
+	unique: false
+	hidden: false
+	readonly: false
+
+ico:
+	title: IČO
+	datatype: string
+	length: 10
+	required: true
+	default: null
+	unique: false
+	hidden: false
+	readonly: false
+
+address:
+	title: Fakturační adresa
+	datatype: text
+	length: 255
+	required: true
+	default: null
+	unique: false
+	hidden: false
+	readonly: false
+
+email:
+	title: Kontaktní email
+	datatype: string
+	length: 120
+	required: true
+	default: null
+	unique: false
+	hidden: false
+	readonly: false
+
+update:
+	title: Datum změny
+	datatype: time
+	length: null
+	required: false
+	default: now
+	unique: false
+	hidden: false
+	readonly: false

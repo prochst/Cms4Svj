@@ -1,0 +1,129 @@
+title:
+	title: Název
+	datatype: string
+	length: 100
+	required: true
+	default: null
+	unique: false
+	hidden: false
+	readonly: false
+
+subtitle:
+	title: Podnázev
+	datatype: string
+	length: 250
+	required: false
+	default: null
+	unique: false
+	hidden: false
+	readonly: false
+
+info_left_title:
+	title: Nadpis vlevo
+	datatype: string
+	length: 50
+	required: true
+	default: null
+	unique: false
+	hidden: false
+	readonly: false
+
+info_left_url:
+	title: URL nadpisu vlevo
+	datatype: string
+	length: 50
+	required: true
+	default: null
+	unique: false
+	hidden: false
+	readonly: false
+
+info_left_text:
+	title: Text vlevo
+	datatype: text
+	length: 250
+	required: true
+	default: null
+	unique: false
+	hidden: false
+	readonly: false
+
+info_center_title:
+	title: Nadpis uprostřed
+	datatype: string
+	length: 50
+	required: true
+	default: null
+	unique: false
+	hidden: false
+	readonly: false
+
+info_center_url:
+	title: URL nadpisu uprostřed
+	datatype: string
+	length: 50
+	required: true
+	default: null
+	unique: false
+	hidden: false
+	readonly: false
+
+info_center_text:
+	title: Text uprostřed
+	datatype: text
+	length: 250
+	required: true
+	default: null
+	unique: false
+	hidden: false
+	readonly: false
+
+info_right_title:
+	title: Nadpis vpravo
+	datatype: string
+	length: 50
+	required: true
+	default: null
+	unique: false
+	hidden: false
+	readonly: false
+
+info_right_url:
+	title: URL nadpisu vpravo
+	datatype: string
+	length: 50
+	required: true
+	default: null
+	unique: false
+	hidden: false
+	readonly: false
+
+info_right_text:
+	title: Text vpravo
+	datatype: text
+	length: 250
+	required: true
+	default: null
+	unique: false
+	hidden: false
+	readonly: false
+
+login_info:
+	title: Přihlášení
+	datatype: text
+	length: 500
+	required: true
+	default: null
+	unique: false
+	hidden: false
+	readonly: false
+
+update:
+	title: Datum změny
+	datatype: time
+	length: null
+	required: false
+	default: now
+	unique: false
+	hidden: false
+	readonly: false

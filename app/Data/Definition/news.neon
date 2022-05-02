@@ -1,0 +1,65 @@
+title:
+	title: Nadpis
+	datatype: string
+	length: 150
+	required: true
+	default: null
+	unique: false
+	hidden: false
+	readonly: false
+	browse: true
+
+publish_date:
+	title: Datum publikování
+	datatype: date
+	length: null
+	required: true
+	default: now
+	unique: false
+	hidden: false
+	readonly: false
+	browse: true
+
+teaser:
+	title: Krátký popis
+	datatype: string
+	length: 250
+	required: true
+	default: null
+	unique: false
+	hidden: false
+	readonly: false
+	browse: true
+
+content:
+	title: Obsah 
+	datatype: text
+	length: 700
+	required: false
+	default: null
+	unique: false
+	hidden: false
+	readonly: false
+	browse: false
+
+show:
+	title: Zobrazit
+	datatype: bool
+	length: false
+	required: true
+	default: true
+	unique: true
+	hidden: false
+	readonly: false
+	browse: true
+
+update:
+	title: Datum změny
+	datatype: time
+	length: null
+	required: false
+	default: now
+	unique: false
+	hidden: false
+	readonly: true
+	browse: false

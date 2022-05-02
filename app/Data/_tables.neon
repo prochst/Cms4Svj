@@ -1,0 +1,24 @@
+main_page:
+ - "Hlavní stránka"
+ - "Informace na hlavní stránce"
+clen_page:
+ - "Společenství"
+ - "Informace určené pro členy SVJ"
+vybor_page:
+ - "Výbor"
+ - "Informace a dokumenty pro výbor SVJ"
+news:
+ - "Aktuality"
+ - "Novinky a zrávy pro členy"
+svj_info:
+ - "SVJ"
+ - "Základní údaje o SVJ"
+users:
+ - "Uživatelé a správci webu"
+ - "Uživatelé s oprávněním přístupu k informacím a administraci"
+svj_members:
+ - "Seznam členů SVJ"
+ - "Jména, kontakty, podíly člený společenství"
+svj_vybor:
+ - "Výbor SVJ"
+ - "Seznam členů výboru SVJ" 

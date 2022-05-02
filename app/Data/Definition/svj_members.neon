@@ -1,0 +1,76 @@
+name:
+	title: Vlastník
+	datatype: string
+	length: 250
+	required: true
+	default: null
+	unique: false
+	hidden: false
+	readonly: false
+	browse: true
+
+email:
+	title: Email
+	datatype: string
+	length: 50
+	required: false
+	default: null
+	unique: false
+	hidden: false
+	readonly: false
+	browse: true
+
+mobil:
+	title: Telefon
+	datatype: string
+	length: 20
+	required: false
+	default: null
+	unique: false
+	hidden: false
+	readonly: false
+	browse: true
+
+byt:
+	title: Číslo bytu
+	datatype: string
+	length: 12
+	required: true
+	default: null
+	unique: true
+	hidden: false
+	readonly: false
+	browse: true
+
+podil:
+	title: Podíl
+	datatype: string
+	length: 12
+	required: true
+	default: null
+	unique: false
+	hidden: false
+	readonly: false
+	browse: true
+
+pocet:
+	title: Počet osob
+	datatype: int
+	length: 2
+	required: true
+	default: 1
+	unique: false
+	hidden: false
+	readonly: false
+	browse: true
+
+update:
+	title: Datum změny
+	datatype: time
+	length: null
+	required: false
+	default: now
+	unique: false
+	hidden: false
+	readonly: false
+	browse: false

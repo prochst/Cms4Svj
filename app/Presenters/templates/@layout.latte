@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<link rel="stylesheet" href="{$basePath}/css/chota.css">
+	<link rel="stylesheet" href="{$basePath}/css/main.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<title>{ifset title}{include title|stripHtml} | {/ifset}Nette Web</title>
+</head>
+
+<body>
+	{* Společné záhlaví *}
+	<header n:class="header, $subsite ? subsite">
+		<nav class="nav-main row">			
+			<div class="col">
+				<nav class="row">
+					<div class="col">
+						<a n:href="Svj:default"><img src="/img/logo.png" alt="SVJ Hilbertova 2279/2280"></a>
+					</div>
+					{* Menu *}
+					<div class="col-9 menu">
+						<ul>
+							<li n:if="$user->isAllowed(App\Model\RoleManager::RES_CLEN)">
+								<a n:if="$subsite!='Spol'" n:href="Spol:default">Společenství</a>
+								<span n:if="$subsite=='Spol'" class="">Společenství</span>
+							</li>
+							<li n:if="$user->isAllowed(App\Model\RoleManager::RES_VYBOR)">
+								<a n:if="$subsite!='Vybor'" n:href="Vybor:default">Výbor SVJ</a>
+								<span n:if="$subsite=='Vybor'" class="">Výbor SVJ</span>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			{* Login *}
+			<div class="col-3 login">
+				{if ($user->isLoggedIn())}
+				<span class="button small clear text-light">{$user->identity->name}</span> <a class="button clear small text-light" n:href="Login:out"><i class="material-icons" title="Odhlásit">logout</i></a>
+				{else}
+				<a n:href="Login:default" class="button outline text-light">Přihlášení</a>
+				{/if}
+			</div>
+		</nav>
+	</header>
+	{* Error message *}
+	<div n:foreach="$flashes as $flash" n:class="flash, $flash->type">{$flash->message}</div>
+	
+	{include content}
+
+	{* Společné zápatí *}
+	<footer class="footer bg-primary text-light" role="contentinfo">
+		<div class="row">
+			<!-- 1 sloupec -->
+			<div class="col text-center foto-bg is-marginless"></div>
+			<!-- 2 sloupec -->
+			<div class="col text-center">
+				<h4>{$texy->process($info->getRows()[key($info->getRows())]['title'])|noescape}</h4>
+				<p>{$info->columns['ico']['title']}: <b>{$info->getRows()[key($info->getRows())]['ico']}</b></p>
+				{$info->columns['address']['title']}:<b>{$texy->process($info->getRows()[key($info->getRows())]['address'])|noescape}</b>
+				<p>{$info->columns['email']['title']}:<br><b>{$info->getRows()[key($info->getRows())]['email']}</b></p>
+			</div>
+			<!-- 3 sloupec -->
+			<div class="col text-center mapa-bg is-marginless"></div>
+		</div>
+	</footer>	
+
+
+	{block scripts}
+	<script src="https://nette.github.io/resources/js/3/netteForms.min.js"></script>
+	{/block}
+</body>
+</html>

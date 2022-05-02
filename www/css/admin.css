@@ -1,0 +1,146 @@
+
+:root {
+  --color-primary: rgb(27, 161, 250); /* brand color */
+  --color-primary-dark: rgb(8, 106, 172);
+  --color-primary-light: rgb(133, 220, 247);
+  --color-lightGrey: rgba(246, 254, 255, 0.9);
+  --color-error: #ee6e5d;
+  --color-success: #5fa558;
+  --txt-bigger: 1.75rem;
+  --txt-big: 1.9rem;
+}
+
+hr {
+  border: none;
+  background-color: var(--color-primary);
+  height: 0.5px;
+  margin: 0.3rem 0;
+}
+.nav-adm {
+  padding: 1rem 2rem;
+}
+
+.nav-adm ul {
+  list-style-type: none;
+  padding: 1rem 2rem;
+}
+
+.nav-adm li a {
+  display: block;
+  font-size: var(--txt-big);
+}
+
+.login-form {
+  padding-right: 2rem;
+  padding-left: 1rem;
+  width: 400px;
+  max-width: 90%;
+}
+
+.edit-form {
+  padding-right: 2rem;
+  padding-left: 1rem;
+}
+.edit-form .label {
+  font-weight: bold;
+  color: var(--color-primary);
+}
+.edit-form .odd {
+  background-color: var(--color-lightGrey);
+}
+
+.padding-vertical{
+  padding: 0.3rem 2.5rem 0.3rem 1.5rem;
+}
+
+.padding-cell{
+  padding: 0.3rem 1rem;
+  font-size: var(--txt-bigger);
+}
+
+.padding-cell-lg{
+  padding: 0.8rem 1.2rem;
+  font-size: var(--txt-bigger);
+}
+
+.button.small {
+  padding: 0.2rem 0.5rem;
+}
+
+.flash {
+  padding: 0.5rem 1rem;
+  font-size: var(--txt-bigger);
+  font-weight: bold;
+  text-align: center;
+  color: var(--color-lightGrey);
+}
+
+.flash.info {
+  background-color: var(--color-success);
+}
+
+.flash.error {
+  background-color: var(--color-error);
+}
+
+.ul-dir{
+  list-style-type:none;
+  padding-left:0.7em;
+}
+
+.li-normal {
+  color: var(--color-lightGrey);
+}
+
+.li-selected {
+  color: var(--color-primary-light);
+}
+
+.material-icons {
+  vertical-align: text-bottom;
+}
+.material-icons.list {
+  padding-top: 5px;
+  padding-right: 7px;
+}
+
+.material-icons.error {
+  color: var(--color-error);
+}
+
+.material-icons.md-18 { font-size: 18px; }
+.material-icons.md-24 { font-size: 24px; }
+.material-icons.md-36 { font-size: 36px; }
+.material-icons.md-48 { font-size: 48px; }
+
+/* Modal dialog pro FileList */
+.modal {
+  visibility:hidden;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(36, 36, 36, 0.7);
+  transition: all .4s;
+}
+
+.modal:target {
+  visibility: visible;
+  opacity: 1;
+}
+
+.modal__content {
+  border-radius: 4px;
+  position: relative;
+  width: 500px;
+  max-width: 90%;
+  background: var(--color-lightGrey);
+  padding: 1em 2em;
+}
+
+

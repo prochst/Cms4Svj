@@ -1,0 +1,32 @@
+{define uctolist-modal, $title, $desc, $dirContent}
+<div class="card" id="{$title}">
+	<header>
+		<h4>{$title} 
+			<a href="#{$title}-modal" class="button primary icon-only small">
+			<i class="material-icons" title="Detail">loupe</i></a>
+		</h4>
+	</header>
+</div>        
+{*Modal dialogs*}
+<div id="{$title}-modal" class="modal-news">
+    <a class="close" href="#{$title}" title="Zpět"></a>
+    <div class="news__content">
+        <a class="cancel" href="#{$title}"><i class="material-icons error small" title="Zpět">cancel</i></a>
+		<h4>{$title}</h4>
+		<div class="row bg-primary text-light is-marginless">
+			<div class="col-10 is-marginless padding-cell">Název souboru</div>
+			<div class="col-2 is-marginless padding-cell">Velikost</div>
+		</div>
+		{var $odd = false}            
+		{if $dirContent['file'] }
+			{foreach $dirContent['file'] as $file => $properties}                               
+			<div n:class="row, text-left, is-marginless, $odd ? bg-secondary">
+				<div class="col-10 is-marginless padding-cell"><a n:href="spol:file $properties['Path'] . '/' . $file">{$file}</a></div>
+				<div class="col-2 is-marginless padding-cell">{$properties['Size']}</div>
+			</div>
+			{var $odd = !$odd}
+			{/foreach}
+		{/if}
+    </div>
+</div>
+{/define}

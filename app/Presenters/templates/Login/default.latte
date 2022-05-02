@@ -1,0 +1,21 @@
+{block content}
+<div class="row bg-primary text-light text-center is-horizontal-align">
+    <div class="col-10 col-9-md col-8-lg">
+        <h1>{$table->getRows()[key($table->getRows())]['title']}</h1>
+        <h2>{$table->getRows()[key($table->getRows())]['subtitle']}</h2>
+    </div>
+</div>
+<div class="row text-center">
+    <div class="col-12 ">
+        <img class="front-icon" src="/img/lo-nastenka.png" alt="Informace a údálosti">
+    </div>
+</div>    
+
+{*Login dialog*}
+<div id="login-modal" class="modal">
+    <div class="modal__content">
+        <a class="cancel" n:href="Svj:default"><i class="material-icons error small" title="Zpět">cancel</i></a>
+        <h2>Přihlásit</h3>
+        {control signInForm}
+    </div>
+</div>

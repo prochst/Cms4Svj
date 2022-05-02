@@ -1,0 +1,24 @@
+{block content}
+<div class="padding-vertical">
+    {* Záhlaví stránky s názvem a popisem tabulky *}
+    <h1>{$table->properties['title']} - {$table->properties['desc']}</h1>
+    <section>
+        {* Výpis jednoho záznamu, prvná sloupec jsou názvy polí, druhý hodnoty *}
+        <div class="row bg-primary bd-grey is-vertical-align " n:foreach="$table->columns as $name => $properties">
+            <div class="col-2 text-light is-marginless padding-cell">{$properties['title']}</div>
+            {if $table->rows}
+                {if $properties['datatype'] == 'text'}
+                    <div class="col bg-light is-marginless padding-cell">{$texy->process($table->getRows()[key($table->getRows())][$name])|noescape}</div>
+                {else}
+                    <div class="col bg-light is-marginless padding-cell">{$table->getRows()[key($table->getRows())][$name]}</div>
+                {/if}    
+            {/if}    
+        </div>
+        <div class="row  bg-primary bd-grey is-vertical-align">
+            <div class="col-2 bg-primary text-light is-marginless padding-cell"></div>
+            <div class="col bg-light is-marginless padding-cell">
+                <a class="button success icon-only small" n:href="editor $table->properties['name']"><i class="material-icons" title="Upravit">edit</i></a>
+            </div>
+        </div>
+    </section>
+</div>

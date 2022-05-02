@@ -1,0 +1,25 @@
+{define file-list, $title, $desc, $dirContent}
+<div class="row text-center">
+	<div class="col accord">
+		<h3 class="is-marginless">{$title}</h3>
+		<p>{$desc}</p>
+		<details class="is-center_">
+			<summary class="padding-cell"><span class="button primary icon-only small"><i class="material-icons">more_horiz</i></span></summary>
+			<div class="row bg-primary text-light is-marginless">
+				<div class="col-10 is-marginless padding-cell">Název souboru</div>
+				<div class="col-2 is-marginless padding-cell">Velikost</div>
+			</div>
+			{var $odd = false}            
+			{if $dirContent['file'] }
+				{foreach $dirContent['file'] as $file => $properties}                               
+				<div n:class="row, text-left, is-marginless, $odd ? bg-secondary">
+					<div class="col-10 is-marginless padding-cell"><a n:href="spol:file $properties['Path'] . '/' . $file">{$file}</a></div>
+					<div class="col-2 is-marginless padding-cell">{$properties['Size']}</div>
+				</div>
+				{var $odd = !$odd}
+				{/foreach}
+			{/if}
+		</details>
+	</div>
+</div>
+{/define}

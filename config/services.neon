@@ -1,0 +1,8 @@
+services:
+	- App\Router\RouterFactory::createRouter
+	- App\Model\DataManager(%dataPath%) 
+	- App\Model\FileManager(%filePath%)
+	- App\Forms\DataEditFormFactory
+	- App\Forms\SignInFormFactory
+	- App\Model\RoleManager
+	authenticator: App\Model\LoginManager

@@ -1,0 +1,21 @@
+parameters:
+	dataPath: ../app/Data/
+	filePath: ../app/Files/
+
+
+application:
+	# bude se při chybě volat error-presenter?
+	catchExceptions: false     # true v produkčním režimu, false = Tracy	
+	errorPresenter: Error
+	mapping:
+		*: App\*Module\Presenters\*Presenter
+
+
+session:
+	expiration: 2 days
+
+
+di:
+	export:
+		parameters: no
+		tags: no

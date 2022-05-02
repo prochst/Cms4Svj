@@ -1,0 +1,76 @@
+login:
+	title: Přihlašovací jméno
+	datatype: string
+	length: 20	
+	required: true
+	default: null
+	unique: true
+	hidden: false
+	readonly: false
+	browse: true
+
+name:
+	title: Jméno uživatele
+	datatype: string
+	length: 50
+	required: true
+	default: null
+	unique: false
+	hidden: false
+	readonly: false
+	browse: true
+
+email:
+	title: Email
+	datatype: string
+	length: 50
+	required: true
+	default: null
+	unique: false
+	hidden: false
+	readonly: false
+	browse: true
+
+pwd:
+	title: Heslo
+	datatype: pwd
+	length: 20
+	required: true
+	default: null
+	unique: true
+	hidden: false
+	readonly: false
+	browse: false
+
+roleFront:
+	title: Role uživatele
+	datatype: enum
+	length: 'Výbor, Člen, Host'
+	required: true
+	default: 'Člen'
+	unique: false
+	hidden: false
+	readonly: false
+	browse: true
+
+roleBack:
+	title: Role správce
+	datatype: enum
+	length: 'Admin, Editor, Žádná'
+	required: true
+	default: 'Žádná'
+	unique: false
+	hidden: false
+	readonly: false
+	browse: true
+
+update:
+	title: Datum změny
+	datatype: time
+	length: null
+	required: false
+	default: now
+	unique: false
+	hidden: false
+	readonly: false
+	browse: true

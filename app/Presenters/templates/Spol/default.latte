@@ -1,0 +1,118 @@
+{import '..\filelist.latte'}
+{import '..\filelist-modal.latte'}
+{block content}
+<div class="row bg-primary text-light text-center is-horizontal-align">
+    <div class="col-10 col-9-md col-8-lg">
+        <h1>{$table->getRows()[key($table->getRows())]['title']}</h1>
+        <h4>{$table->getRows()[key($table->getRows())]['subtitle']}</h4>
+    </div>
+</div>
+{* Aktuální informace *}
+<div class="row text-center">
+    <div class="col padding-cell">
+        <span class="button circle primary icon-only margin-top"><i class="material-icons md-48">info_outline</i></span>
+        <h3 class="is-marginless">{$table->columns['info']['title']}</h3>
+        <div n:if="$texy->process($table->getRows()[key($table->getRows())]['info'])">{$texy->process($table->getRows()[key($table->getRows())]['info'])|noescape}</div>
+    </div>
+</div>    
+<div class="row bg-primary text-light text-center">
+    <div class="col padding-cell">
+        <h3 class="no-margin-bottom"><i class="material-icons md-48">contact_page</i>Kontakty</h3>
+    </div>
+</div>    
+{* Seznam členů *}
+<div class="row text-center">
+    <div class="col accord">
+        <h3 class="is-marginless">{$table->columns['seznam_clenu']['title']}</h3>
+        <p>{$table->getRows()[key($table->getRows())]['seznam_clenu']}</p>
+        <details class="is-center is-padding-vertical">
+            <summary class="padding-cell"><span class="button primary icon-only small"><i class="material-icons">more_horiz</i></span></summary>
+            <div class="row bg-primary text-light text-left is-marginless">
+                {foreach $members->columns as $name => $value}
+                <div n:class="$name == 'name' ? col-4 : col, $name == 'email' ? col-3 : col, is-marginless, padding-cell" n:if="$members->columns[$name]['browse']">
+                    {$members->columns[$name]['title']}
+                </div>
+                {/foreach}
+            </div>
+            {var $odd = 0}            
+            <div class="row text-left is-marginless" n:foreach="$members->getRows() as $uid => $record">
+                {foreach $record as $name => $value}
+                <div n:class="$name == 'name' ? col-4 : col, $name == 'email' ? col-3 : col, odd($odd) ? bg-secondary, is-marginless, padding-cell" n:if="$members->columns[$name]['browse']">
+                    {if $members->columns[$name]['datatype'] == 'text'}
+                        {$texy->process($value)|noescape}
+                    {else}
+                        {$value}
+                    {/if}
+                </div>
+                {/foreach}
+                {var $odd = $odd + 1}
+            </div>
+        </details>
+    </div>
+</div>    
+{* Výbor *}
+<div class="row text-center">
+    <div class="col accord">
+        <h3 class="is-marginless">{$table->columns['vybor']['title']}</h3>
+        <p>{$table->getRows()[key($table->getRows())]['vybor']}</p>
+        <details class="is-center is-padding-vertical">
+            <summary class="padding-cell"><span class="button primary icon-only small"><i class="material-icons">more_horiz</i></span></summary>
+            <div class="row bg-primary text-light is-marginless">
+                {foreach $vybor->columns as $name => $value}
+                <div n:class="$name == 'name' ? col-3 : col, is-marginless, padding-cell" n:if="$vybor->columns[$name]['browse']">
+                    {$vybor->columns[$name]['title']}
+                </div>
+                {/foreach}
+            </div>
+            {var $odd = 0}            
+            <div class="row is-marginless" n:foreach="$vybor->getRows() as $uid => $record">
+                {foreach $record as $name => $value}
+                <div n:class="$name == 'name' ? col-3 : col, odd($odd) ? bg-secondary, is-marginless, padding-cell" n:if="$vybor->columns[$name]['browse']">
+                    {if $vybor->columns[$name]['datatype'] == 'text'}
+                        {$texy->process($value)|noescape}
+                    {else}
+                        {$value}
+                    {/if}
+                </div>
+                {/foreach}
+                {var $odd = $odd + 1}
+            </div>
+        </details>
+    </div>
+</div>    
+{* Dokumenty *}
+<div class="row bg-primary text-light text-center">
+    <div class="col padding-cell">
+        <h3 class="no-margin-bottom"><i class="material-icons md-48">source</i>Dokumenty</h3>
+    </div>
+</div>  
+<div class="row text-center is-horizontal-align is-padding-top">
+    <div class="col-12 col-6-md col-4-lg">
+    <!-- Společenství -->
+    {include filelist-modal, 
+        $table->columns['dok_svj']['title'], 
+        $table->getRows()[key($table->getRows())]['dok_svj'], 
+        $fileMng->getDirContent($table->getRows()[key($table->getRows())]['dok_svj_adr'])} 
+    </div>
+    <div class="col-12 col-6-md col-4-lg">
+    <!-- Hospodaření -->
+    {include filelist-modal, 
+        $table->columns['dok_hospodareni']['title'], 
+        $table->getRows()[key($table->getRows())]['dok_hospodareni'], 
+        $fileMng->getDirContent($table->getRows()[key($table->getRows())]['dok_hospodareni_adr'])} 
+    </div>
+    <div class="col-12 col-6-md col-4-lg">
+    <!-- Revize -->
+    {include filelist-modal, 
+        $table->columns['dok_revize']['title'], 
+        $table->getRows()[key($table->getRows())]['dok_revize'], 
+        $fileMng->getDirContent($table->getRows()[key($table->getRows())]['dok_revize_adr'])} 
+    </div>
+    <div class="col-12 col-6-md col-4-lg">
+    <!-- Ostatní -->
+    {include filelist-modal, 
+        $table->columns['dok_ostatni']['title'], 
+        $table->getRows()[key($table->getRows())]['dok_ostatni'], 
+        $fileMng->getDirContent($table->getRows()[key($table->getRows())]['dok_ostatni_adr'])} 
+    </div>
+</div>

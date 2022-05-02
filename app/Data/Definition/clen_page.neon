@@ -1,0 +1,153 @@
+title:
+	title: Název
+	datatype: string
+	length: 100
+	required: true
+	default: null
+	unique: false
+	hidden: false
+	readonly: false
+	browse: true
+
+subtitle:
+	title: Podnázev
+	datatype: string
+	length: 250
+	required: false
+	default: null
+	unique: false
+	hidden: false
+	readonly: false
+	browse: true
+
+info:
+	title: Aktuální informace
+	datatype: text
+	length: 500
+	required: false
+	default: null
+	unique: false
+	hidden: false
+	readonly: false
+	browse: true
+
+seznam_clenu:
+	title: Seznam členů SVJ
+	datatype: text
+	length: 250
+	required: true
+	default: null
+	unique: false
+	hidden: false
+	readonly: false
+	browse: true
+
+vybor:
+	title: Výbor SVJ
+	datatype: text
+	length: 250
+	required: true
+	default: null
+	unique: false
+	hidden: false
+	readonly: false
+	browse: true
+
+dok_svj:
+	title: Společenství
+	datatype: text
+	length: 250
+	required: true
+	default: null
+	unique: false
+	hidden: false
+	readonly: false
+	browse: true
+
+dok_svj_adr:
+	title: Společenství - složka
+	datatype: dir
+	length: 50
+	required: true
+	default: ''
+	unique: false
+	hidden: false
+	readonly: false
+	browse: true
+
+dok_hospodareni:
+	title: Hospodaření
+	datatype: text
+	length: 250
+	required: true
+	default: null
+	unique: false
+	hidden: false
+	readonly: false
+	browse: true
+
+dok_hospodareni_adr:
+	title: Hospodaření - složka
+	datatype: dir
+	length: 50
+	required: true
+	default: ''
+	unique: false
+	hidden: false
+	readonly: false
+	browse: true
+
+dok_revize:
+	title: Revize
+	datatype: text
+	length: 250
+	required: true
+	default: null
+	unique: false
+	hidden: false
+	readonly: false
+	browse: true
+
+dok_revize_adr:
+	title: Revize - složka
+	datatype: dir
+	length: 50
+	required: true
+	default: ''
+	unique: false
+	hidden: false
+	readonly: false
+	browse: true
+
+dok_ostatni:
+	title: Ostatní
+	datatype: text
+	length: 250
+	required: true
+	default: null
+	unique: false
+	hidden: false
+	readonly: false
+	browse: true
+
+dok_ostatni_adr:
+	title: Ostatní - složka
+	datatype: dir
+	length: 50
+	required: true
+	default: ''
+	unique: false
+	hidden: false
+	readonly: false
+	browse: true
+
+update:
+	title: Datum změny
+	datatype: time
+	length: null
+	required: false
+	default: now
+	unique: false
+	hidden: false
+	readonly: false
+	browse: true
