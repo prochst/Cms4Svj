@@ -52,21 +52,21 @@ Presentace SVJ má tři části:
 
 ### Struktura projektu
 
---app [aplikační složka Nette, obsahuje php soubory, šablony, data, a uložené soubory]
-  |--AdmModule [administrační modul]
-  |--Data [datové soubory]
-     |--Definition [definiční soubory tabulek]
-  |--Files [uživatelské soubory a dokumenty spravované v aplikaci ]
-  |--Form [definice použitých formulářů]
-  |--Models [třídy pro správu dat, souborů a stránek]
-  |--Presenters [presentery jednotlivých stránek]
-     |--templates [šablony pro zobrazení stránek]
-  |--Router [směrování na jednotlivé stránky a tvorba URL]
---bin
---config [configurační soubory farameworku Nette]
---log [log aplikace]
---temp [dočasné soubory a cache]
---www [root složka webové presentace, dostupná jako <http://server.name>]
+- app [aplikační složka Nette, obsahuje php soubory, šablony, data, a uložené soubory]
+  - AdmModule [administrační modul]
+  - Data [datové soubory]
+    - Definition [definiční soubory tabulek]
+  - Files [uživatelské soubory a dokumenty spravované v aplikaci ]
+  - Form [definice použitých formulářů]
+  - Models [třídy pro správu dat, souborů a stránek]
+  - Presenters [presentery jednotlivých stránek]
+     - templates [šablony pro zobrazení stránek]
+  - Router [směrování na jednotlivé stránky a tvorba URL]
+- bin
+- config [configurační soubory farameworku Nette]
+- log [log aplikace]
+- temp [dočasné soubory a cache]
+- www [root složka webové presentace, dostupná jako <http://server.name>]
 
 ### Administrace
 
@@ -89,15 +89,25 @@ S daty se pracuje jako s databázovými tabulkami, jen jsou data a definice ulo�
 Data jsou uložena ve složce `app/Data`, název složky je uložen v konfiguračním souboru `common.neon` jako parametr.
 V této složce je i soubor `_tables.neon` který obsahuje seznam všech datových tabulek, které aplikace používá. V seznamu je uložen název souboru bez přípony, název a popis datové tabulky.
 Definice jednotlivých dat jsou uloženy v podložce `Definition`, název soubory a definicí a s daty je vždy shodný.
+
 U sloupců v datových souborech se definují tyto vlastnosti:
+
     `title`: název sloupce
+    
     `datatype`: datový typ
+    
     `length`: délka řetězce nebo čísla, null, pro typ ENUM čárkou oddělená seznam hodnot
+    
     `required`: je požadována hodnota
+    
     `default`: výchozí hodnota při vytvoření nového záznamu
+    
     `unique`: hodnota je unikátní
+    
     `hidden`: nezobrazí se ve výstupech formulářích
+    
     `readonly`: jen pro čtení
+    
     `browse`: nezobrazuje ve výstupech
 
  Pro datový typ `TEXT` lze používat pro formátování textu značkovací jazyk [Texy](https://texy.info/cs/)
@@ -105,23 +115,24 @@ U sloupců v datových souborech se definují tyto vlastnosti:
 ### Soubory
 
 Soubory jsou uloženy ve složce `app/Files`, název složky je uložen v konfiguračním souboru `common.neon` jako parametr.
+
 Počáteční struktura, na kterou se odkazují stránky:
-   -Dokumenty
-   -|-Společenství
-   -|-|-Hospodaření (výkazy hospodaření SVJ)
-   -|-|-Ostatní (ostatní dokumenty pro členy SVJ)
-   -|-|-Revize (revizní zprávy)
-   -|-|-Společenství (stanovy, zápisy ze shromáždění, ..)
-   -|-Účetní doklady
-   -|-|-2021
-   -|-|-2022
-   -|-Veřejné (veřejné dokumenty na hlavní stránce)
-   -|-Výbor
-   -|-|-Dohody (dohody o provedení práce s členy SVJ)
-   -|-|-Služby (ceny a vyúčtování za služby - teplo, voda energie)
-   -|-|-Smlouvy (smlouvy SVJ)
-   -|-|-Zápisy (zápisy se schůzí výboru)
-   -Novinky '(dokumenty do aktualit na hlavní stránce)
+- Dokumenty
+  - Společenství
+    - Hospodaření (výkazy hospodaření SVJ)
+    -Ostatní (ostatní dokumenty pro členy SVJ)
+    - Revize (revizní zprávy)
+    - Společenství (stanovy, zápisy ze shromáždění, ..)
+  - Účetní doklady
+    - 2021
+    - 2022
+  - Veřejné (veřejné dokumenty na hlavní stránce)
+  - Výbor
+    - Dohody (dohody o provedení práce s členy SVJ)
+    - Služby (ceny a vyúčtování za služby - teplo, voda energie)
+    - Smlouvy (smlouvy SVJ)
+    - Zápisy (zápisy se schůzí výboru)
+- Novinky '(dokumenty do aktualit na hlavní stránce)
 
 ### Vzhled
 
