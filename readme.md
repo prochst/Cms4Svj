@@ -38,8 +38,10 @@ Pro spuštění webové aplikace je potřeba prostředí s webovým serverem Apa
 
 Celý projekt nakopírujete do kořenové složky webu.
 
-Předefinované uživatelské účty pro přihlášení do presentace i do administrativní části
+Předefinované uživatelské účty pro přihlášení do presentace i do administrativní části:
+
 Admin - 12345
+
 Editor - 54321
 
 ## Používání
